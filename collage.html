@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FunnyCats.Com - Cat Collage</title>
+  <style>
+    body {
+      width:100%;
+      margin: 0;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-image: url('img/cats.webp');
+            background-size: cover;
+            background-attachment: fixed;
+    }
+header{
+    margin-top: 1%;
+    position: fixed;
+    z-index: 2; /* Ensure that GIFs are behind the content */
+    background-color: black;
+    opacity: 75%;
+
+}
+    .cat-gif {
+        z-index: 1; /* Ensure that GIFs are behind the content */
+      margin: 10px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="Img/FUNNYCATSGIF.gif" alt=""></a>
+    </header>
+  <script>
+    // Replace 'YOUR_GIPHY_API_KEY' with your actual Giphy API key
+    const GIPHY_API_KEY = 'GP9yjpGiLMYxCoF4kjakp9p9T7B3inhJ';
+    const NUMBER_OF_GIFS = 200;
+
+    const container = document.body;
+
+    async function getRandomCatGifs() {
+      try {
+        const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=cat&limit=${NUMBER_OF_GIFS}`);
+        const data = await response.json();
+        return data.data;
+      } catch (error) {
+        console.error('Error fetching cat GIFs:', error);
+        return [];
+      }
+    }
+
+    async function renderCatGifs() {
+  const catGifs = await getRandomCatGifs();
+  const addedGifs = [];
+
+  catGifs.forEach((gif, index) => {
+    const gifContainer = document.createElement('div');
+    gifContainer.className = 'cat-gif';
+
+    const img = document.createElement('img');
+    img.src = gif.images.fixed_height.url;
+    img.alt = gif.title;
+
+    // Randomly position the GIF
+    let x, y, overlaps;
+    do {
+      x = Math.floor(Math.random() * (window.innerWidth - 200));
+      y = Math.floor(Math.random() * (window.innerHeight - 200));
+      overlaps = addedGifs.some((addedGif) => {
+        const addedGifRect = addedGif.getBoundingClientRect();
+        const gifRect = {
+          left: x,
+          top: y,
+          right: x + img.width,
+          bottom: y + img.height,
+        };
+        return !(
+          gifRect.right < addedGifRect.left ||
+          gifRect.left > addedGifRect.right ||
+          gifRect.bottom < addedGifRect.top ||
+          gifRect.top > addedGifRect.bottom
+        );
+      });
+    } while (overlaps);
+
+    gifContainer.style.left = `${x}px`;
+    gifContainer.style.top = `${y}px`;
+
+    gifContainer.appendChild(img);
+    container.appendChild(gifContainer);
+    addedGifs.push(gifContainer);
+  });
+}
+
+
+
+    renderCatGifs();
+  </script>
+</body>
+</html>
