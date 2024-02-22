@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y2K Web 1.0 Cat Memes</title>
+    <style>
+        body {
+            background-color: #FFD1DC; /* Light Pink */
+            font-family: Comic Sans MS, cursive; /* Comic Sans MS font */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        #header {
+            background-color: #FF69B4; /* Hot Pink */
+            color: white;
+            padding: 10px;
+        }
+
+        .cat-meme-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }header{
+            margin-top: 1%;
+
+        }
+        
+
+        .cat-meme {
+            width: 30%;
+            margin: 10px;
+            padding: 5px;
+            box-shadow: 5px 5px 10px #FFD1DC; /* Light Pink shadow */
+        }
+
+        .cat-meme img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .cat-meme p {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="Img/FUNNYCATSGIF.gif" alt=""></a>
+    </header>
+    <div id="header">
+        <h1>Cute Cat Photos</h1>
+    </div>
+
+    <div class="cat-meme-container" id="cat-meme-container"></div>
+
+    <script>
+        // Define your Unsplash API access key
+        const accessKey = 'RNyXHk6662ug2YfNjKZQ4y0-zWa0u3CxEoKw6Bip2nI';
+
+        // API endpoint for random cat images
+        const apiUrl = `https://api.unsplash.com/photos/random?query=cats&client_id=${accessKey}&count=40`;
+
+        // Fetch random cat images
+        async function fetchCatImages() {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            // Display cat memes
+            data.forEach((image, index) => {
+                const catMemeContainer = document.getElementById('cat-meme-container');
+                const catMeme = document.createElement('div');
+                catMeme.className = 'cat-meme';
+                catMeme.innerHTML = `
+                    <img src="${image.urls.small}" alt="Cat Meme ${index + 1}">
+                    <p>Photo by ${image.user.name} on Unsplash</p>
+                `;
+                catMemeContainer.appendChild(catMeme);
+            });
+        }
+
+        fetchCatImages();
+    </script>
+
+</body>
+</html>
