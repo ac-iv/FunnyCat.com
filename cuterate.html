@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y2K Web 1.0 Cat Memes</title>
+</head>
+<style>
+    body {
+        font-family: 'Comic Sans MS', cursive;
+        background-color: #FFD1DC; /* Light Pink */
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        color: #0066ff; /* A deep blue */
+    }
+
+    header {
+        margin-top: 1%;
+        z-index: 2; /* Ensure that GIFs are behind the content */
+        background-color: white;
+        opacity: 75%;
+    }
+
+    .rating-buttons {
+        display: inline-block;
+    }
+
+    .rating-buttons input[type="radio"] {
+        display: none;
+    }
+
+    .rating-buttons input[type="radio"] + label {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+    }
+
+    .rating-buttons input[type="radio"]:checked + label {
+        background-color: #ff69b4; /* Hot Pink */
+    }
+
+    button#doneButton {
+        display: block;
+        margin: 0 auto;
+        background-color: #ffa500; /* Orange */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button#doneButton:hover {
+        background-color: #ff6347; /* Tomato */
+    }
+</style>
+<body>
+    <header>
+        <a href="index.html"><img src="Img/FUNNYCATSGIF.gif" alt=""></a>
+    </header>
+    <div id="header">
+        <h1>Cat Cuteness Rater</h1>
+    </div>
+
+    <div class="cat-meme-container" id="cat-meme-container"></div>
+    <footer style="background-color:#fefefe8b;  text-align:center; padding-top: 1%; padding-bottom: 1%;">
+        <p style="font-family:Arial, sans-serif; font-size:12px; color:#000; margin-bottom:5px;">
+            &copy; 2024 FunnyCats.Com | Designed with <3 in HTML
+        </p>
+        <p style="font-family:Arial, sans-serif; font-size:12px; color:#000; margin-bottom:5px;">
+            Hosted on a Geocities server, somewhere in the world!
+        </p>
+        <p style="font-family:Arial, sans-serif; font-size:12px; color:#000; margin-bottom:5px;">
+            This page is best viewed in Apple Safari Navigator 2024
+        </p>
+        <p style="font-family:Arial, sans-serif; font-size:12px; color:#000;">
+            <!-- <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a> -->
+            <a href="#">Privacy Policy</a>
+        </p>
+    </footer>
+    <script>
+        // Define your Unsplash API access key
+        const accessKey = 'RNyXHk6662ug2YfNjKZQ4y0-zWa0u3CxEoKw6Bip2nI';
+
+        // API endpoint for random cat images
+        const apiUrl = `https://api.unsplash.com/photos/random?query=cats&client_id=${accessKey}&count=40`;
+
+        // Fetch random cat images
+        async function fetchCatImages() {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            let index = 0; // Track current index of image
+            const totalImages = data.length; // Total number of images fetched
+
+            const catMemeContainer = document.getElementById('cat-meme-container');
+
+            // Function to create rating circles
+            function createRatingButtons(index) {
+                return `
+                    <div class="rating-buttons" data-index="${index}">
+                        <input type="radio" id="not-cute-${index}" name="rating-${index}" value="1">
+                        <label for="not-cute-${index}">1</label>
+                        <input type="radio" id="less-cute-${index}" name="rating-${index}" value="2">
+                        <label for="less-cute-${index}">2</label>
+                        <input type="radio" id="neutral-${index}" name="rating-${index}" value="3">
+                        <label for="neutral-${index}">3</label>
+                        <input type="radio" id="cute-${index}" name="rating-${index}" value="4">
+                        <label for="cute-${index}">4</label>
+                        <input type="radio" id="cutest-${index}" name="rating-${index}" value="5">
+                        <label for="cutest-${index}">5</label>
+                    </div>
+                    <br>
+                    <br>
+                    <button id="doneButton" style="display: none;">Done</button>
+                `;
+            }
+
+            // Function to display the cat image and rating circles
+            function displayCatMeme(index) {
+                const catMeme = document.createElement('div');
+                catMeme.className = 'cat-meme';
+                catMeme.innerHTML = `
+                    <img src="${data[index].urls.small}" alt="Cat Meme ${index + 1}">
+                    <p>Photo by ${data[index].user.name} on Unsplash</p>
+                    ${createRatingButtons(index)}
+                `;
+                catMemeContainer.innerHTML = ''; // Clear the container
+                catMemeContainer.appendChild(catMeme);
+            }
+
+            // Event listener for rating buttons
+            catMemeContainer.addEventListener('change', function(event) {
+                const selectedIndex = Number(event.target.closest('.rating-buttons').dataset.index);
+                const selectedValue = Number(event.target.value);
+
+                const doneButton = catMemeContainer.querySelector('#doneButton');
+                doneButton.style.display = 'block';
+
+                doneButton.addEventListener('click', function(event) {
+                    // Submit rating and display the next cat image
+                    index++;
+                    if (index < totalImages) {
+                        displayCatMeme(index);
+                    } else {
+                        alert('All cat images rated! Thank you!');
+                    }
+                });
+            });
+
+            // Display the first cat image and rating circles
+            displayCatMeme(index);
+        }
+
+        fetchCatImages();
+    </script>
+
+</body>
+</html>
