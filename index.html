@@ -28,14 +28,12 @@ background-image: url(Img/clouds.jpg);            background-size:cover;
             text-align: center;
         }
         nav {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.67);
-            padding-top: 2%;
-            padding-bottom: 2%;
-
-            white-space: nowrap;
-            overflow: hidden;
-        }
+    white-space: normal; /* Set to normal to allow line breaks */
+    overflow-wrap: break-word; /* Allow the text to wrap at word breaks */
+    background-color: rgba(255, 255, 255, 0.67);
+    text-align: center;
+    padding: 2%;
+}
       
         .container {
             display: flex;
@@ -72,24 +70,42 @@ background-image: url(Img/clouds.jpg);            background-size:cover;
             bottom: 0;
             width: 100%;
         }
-       video{
-
+        video {
+  max-width: 100%; /* Set a maximum width for the video */
+  max-height: 100%; /* Set a maximum height for the video */
+  width: 100%; /* Ensure the video takes up the full width of its container */
+  height: auto; /* Allow the video's height to adjust proportionally */
+  display: block; /* Ensure the video behaves as a block element */
+  margin: 0 auto; /* Center the video horizontally */
   background-color:#ddc;
   border:solid 5vmin #eee;
   border-bottom-color: #FFE700;
-border-left-color: #FFD700;
-border-radius: 2px;
-border-right-color: #FFD700;
-border-top-color: #FFE700;
-
+  border-left-color: #FFD700;
+  border-radius: 2px;
+  border-right-color: #FFD700;
+  border-top-color: #FFE700;
   box-shadow:0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
   box-sizing:border-box;
   display:inline-block;
- 
   position:relative;
   text-align:center;
-  
-       }
+}
+
+/* Media queries for smaller screen sizes */
+@media screen and (max-width: 768px) {
+  video {
+    max-width: 80%; /* Decrease the maximum width for smaller screens */
+    max-height: 80%; /* Decrease the maximum height for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  video {
+    max-width: 60%; /* Further decrease the maximum width for even smaller screens */
+    max-height: 60%; /* Further decrease the maximum height for even smaller screens */
+  }
+}
+
     </style>
 </head>
 <body>
@@ -98,11 +114,10 @@ border-top-color: #FFE700;
     </header>
     <nav>
         <a href="#">FUNNY CAT VIDEOS</a> | 
-        <a href="#">FAVORITE CAT VIDEOS</a> | 
         <a href="collage.html">CAT COLLAGE</a> | 
         <a href="#">CAT MEMES</a> | 
         <a href="cute.html">CUTE CAT PICTURES</a> | 
-        <a href="#">CAT ART</a> | 
+        <a href="catart.html">MAKE YOUR CAT INTO A PAINTING</a> | 
         <a href="cuterate.html">CAT CUTENESS RATER</a> | 
         <a href="breeds.html">CAT BREEDS</a>        
  
