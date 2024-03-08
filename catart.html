@@ -8,35 +8,36 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body class="catart-page">    
     <header>
         <a href="index.html"><img src="Img/FUNNYCATSGIF.gif" alt=""></a>
     </header>
-    <h3>  How to use:</h3>
+    <h3>How to use:</h3>
     <p>1. Load Image </p> 
-    <p> 2. Select type of efect. "Original" button.</p>
-     <p>3. Toggle Intencity (Number)</p>
+    <p>2. Select type of effect. "Original" button.</p>
+    <p>3. Toggle Intensity (Number)</p>
     <h1>
         Cat Art Photo Generator
-    <br>
-      <select id="elStyle">
-        <option>original</option>
-        <option selected="selected">char</option>
-        <option>dots</option>
-        <option>emoji</option>
-        <option>line</option>
-      </select>
-      <select id="elKernel">
-        <option>3</option>
-        <option selected="selected">5</option>
-        <option>7</option>
-        <option>11</option>
-        <option>19</option>
-      </select>
-      <input type="file" id="elImageInput" accept="image/*">
+        <br>
+        <select id="elStyle">
+            <option>original</option>
+            <option selected="selected">char</option>
+            <option>dots</option>
+            <option>emoji</option>
+            <option>line</option>
+        </select>
+        <select id="elKernel">
+            <option>3</option>
+            <option selected="selected">5</option>
+            <option>7</option>
+            <option>11</option>
+            <option>19</option>
+        </select>
+        <input type="file" id="elImageInput" accept="image/*">
+        <button id="downloadPNG">Download as PNG</button>
+        <button id="downloadSVG">Download as SVG</button>
     </h1>
     <div class="frame" id="elFrame"><img id="elImg"/></div>
     <footer style="background-color:#fefefe8b;  text-align:center; padding-top: 1%; margin-bottom: 3%; padding-bottom: 1%;">
@@ -57,7 +58,7 @@
             <a href="#">Privacy Policy</a>
         </p>
     </footer>
-  </body>
+</body>
   
 <script>
     const FPS = 60;
@@ -295,6 +296,24 @@
             return {onCanvas, imageData};
         }
     }
+
+    // Function to download canvas as PNG
+    document.getElementById('downloadPNG').addEventListener('click', function() {
+        const canvas = document.getElementById('elFrame').querySelector('canvas');
+        const link = document.createElement('a');
+        link.download = 'artwork.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    });
+
+    // Function to download canvas as SVG
+    document.getElementById('downloadSVG').addEventListener('click', function() {
+        const canvas = document.getElementById('elFrame').querySelector('canvas');
+        const link = document.createElement('a');
+        link.download = 'artwork.svg';
+        link.href = 'data:image/svg+xml,' + encodeURIComponent(canvas.toSVG());
+        link.click();
+    });
 </script>
 
 </html>
