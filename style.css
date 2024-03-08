@@ -1,0 +1,301 @@
+.index-page {
+    font-family: 'Times New Roman', Times, serif;            
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 10px;
+    background-image: url(Img/clouds.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.index-page h1 {
+    color: red;
+}
+
+.index-page header {
+    color: #fff;
+    text-align: center;
+}
+
+.index-page nav {
+    white-space: normal;
+    overflow-wrap: break-word;
+    background-color: rgba(255, 255, 255, 0.67);
+    text-align: center;
+    padding: 2%;
+}
+
+.index-page .container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.index-page .column {
+    padding: 20px;
+}
+
+.index-page .column.left {
+    flex: 1;
+    max-width: 25%;
+    border-right: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.67);
+}
+
+.index-page .column.center {
+    flex: 2;
+    background-color: rgba(255, 255, 255, 0.67);
+    text-align: center;
+    max-width: 50%;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+
+.index-page .column.right {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.67);
+    max-width: 25%;
+    border-left: 1px solid #ccc;
+}
+
+.index-page footer {
+    background-color: white;
+    color: red;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    background-color: #fefefe8b;  
+    text-align: center; 
+    padding-top: 1%; 
+    padding-bottom: 1%;
+}
+
+.index-page video {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    background-color: #ddc;
+    border: solid 5vmin #eee;
+    border-bottom-color: #FFE700;
+    border-left-color: #FFD700;
+    border-radius: 2px;
+    border-right-color: #FFD700;
+    border-top-color: #FFE700;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+/* Media queries for smaller screen sizes */
+@media screen and (max-width: 768px) {
+    .index-page video {
+        max-width: 80%;
+        max-height: 80%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .index-page video {
+        max-width: 60%;
+        max-height: 60%;
+    }
+}
+.index-page footer {
+    background-color: #fefefe8b;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.index-page footer p {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.breeds-page {
+    font-family: 'Comic Sans MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffd7e1;
+}
+
+.breeds-page header {
+    background-color: #ff7eb9;
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    margin: 0; /* Add this line */
+    padding-top: 1%;
+}
+
+.breeds-page main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.breeds-page section {
+    background-color: #ffaddb;
+    width: calc(33% - 20px);
+    padding: 20px;
+    border: 2px solid #ff4b8b;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: -20px;
+    margin: 2%;
+}
+
+.breeds-page h2 {
+    margin: 0;
+    color: #ff4b8b;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 24px;
+}
+
+.breeds-page p {
+    margin-top: 0;
+    color: #ff4b8b;
+}
+
+.breeds-page .fun-fact {
+    font-style: italic;
+    font-weight: bolder;
+    color: #fff;
+}
+
+.breeds-page footer {
+    background-color: #fefefe8b;
+    text-align: center;
+    padding-top: 1%;
+    margin-bottom: 3%;
+    padding-bottom: 1%;
+}
+
+.breeds-page footer p {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.breeds-page img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.catart-page {
+    background-color: #FFFFF1;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .catart-page  h1 {
+  }
+  
+  .catart-page  select {
+    margin-bottom: 0.5em;
+    border: 2px solid #ff0000;
+    background-color: #FFFFF1;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+  
+  .catart-page  input[type="file"] {
+    background-color: #FFFFF1;
+    color: black;
+    border: 2px solid #ff0000;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .catart-page  .frame {
+    position: relative;
+    width: 90vw;
+    height: 90vh;
+    background-color: #FFFFF1;
+    margin-top: 20px;
+    text-align: center;
+    padding-left: 8%;
+  
+  }
+  
+  .catart-page  .frame canvas, .frame img {
+    object-fit: contain;
+    width: 90%;
+    height: 90%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; /* add this line */
+    bottom: 0; /* add this line */
+    margin: auto; /* add this line */
+    border: 2px solid #ff0000;
+    background-color: #FFFFF1;
+  }
+  
+  .catart-page  h1 {
+    
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+  }
+  
+  .catart-page  .header {
+    background-color: #  border: 2px solid #ff0000;
+  ;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .catart-page  .header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    color: #FFFFF1;
+  }  
+
+  .collage-page {
+    width:100%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url('img/cats.webp');
+          background-size: cover;
+          background-attachment: fixed;
+  }
+  .collage-page header{
+align-items: center;  
+margin-top: 1%;
+  position: fixed;
+  z-index: 2; /* Ensure that GIFs are behind the content */
+  background-color: black;
+  opacity: 75%;
+
+}
+.collage-page .cat-gif {
+      z-index: 1; /* Ensure that GIFs are behind the content */
+    margin: 10px;
+    position: absolute;
+  }

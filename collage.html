@@ -2,40 +2,10 @@
 <html>
 <head>
     <title>FunnyCats.Com - Cat Collage</title>
-  <style>
-    body {
-      width:100%;
-      margin: 0;
-      padding: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      overflow: hidden;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background-image: url('img/cats.webp');
-            background-size: cover;
-            background-attachment: fixed;
-    }
-header{
-    margin-top: 1%;
-    position: fixed;
-    z-index: 2; /* Ensure that GIFs are behind the content */
-    background-color: black;
-    opacity: 75%;
+    <link rel="stylesheet" href="style.css">
 
-}
-    .cat-gif {
-        z-index: 1; /* Ensure that GIFs are behind the content */
-      margin: 10px;
-      position: absolute;
-    }
-  </style>
 </head>
-<body>
+<body class="collage-page">
     <header>
         <a href="index.html"><img src="Img/FUNNYCATSGIF.gif" alt=""></a>
     </header>
