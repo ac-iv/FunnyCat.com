@@ -10,7 +10,9 @@
     background-attachment: fixed;
     background-position: center;
 }
-
+ul{
+    font-size: large;
+}
 .index-page h1 {
     color: red;
 }
@@ -299,3 +301,86 @@ margin-top: 1%;
     margin: 10px;
     position: absolute;
   }
+
+
+ .cat-memes body {
+    font-family: Arial, sans-serif;
+    background-color: #ffda08;
+    background-image: url('https://media.tenor.com/images/45f48e4a1ee9e4354f4af1b7f8b1a7c8/tenor.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.cat-memes .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(213, 40, 40, 0.8);
+    border-radius: 10px;
+}
+
+.cat-memes .meme {
+    width: 250px;
+    margin: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.cat-memes .meme img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.cat-memes header{
+    text-align: center;
+}
+
+.cute body {
+    background-color: #FFD1DC; /* Light Pink */
+    font-family: Comic Sans MS, cursive; /* Comic Sans MS font */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.cute #header {
+    background-color: #FF69B4; /* Hot Pink */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.cute .cat-meme-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.cute header{
+    margin-top: 1%;
+    text-align: center;
+
+}
+
+
+.cute .cat-meme {
+    width: 30%;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 5px 5px 10px #FFD1DC; /* Light Pink shadow */
+}
+
+.cute .cat-meme img {
+    max-width: 100%;
+    height: auto;
+}
+
+.cute .cat-meme p {
+    font-size: 14px;
+    font-weight: bold;
+}

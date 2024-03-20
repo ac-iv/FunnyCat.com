@@ -1,0 +1,39 @@
+body {
+    background-color: #0099CC;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #FFFF00;
+    padding: 20px;
+}
+.container {
+    background-color: #0000FF;
+    padding: 20px;
+    border: 5px dashed #FF00FF;
+}
+h1 {
+    color: #FF00FF;
+    text-align: center;
+}
+p {
+    color: #FFFFFF;
+}
+marquee {
+    font-size: large;
+    background-color: #FF69B4;
+    color: #FFFFFF;
+}
+.blink {
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+.footer {
+    font-size: small;
+    text-align: center;
+    margin-top: 20px;
+    color: #ffffff;
+}
+h4{
+    text-align: center;
+    color: #f6ff00;
+}

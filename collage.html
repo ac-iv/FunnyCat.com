@@ -10,7 +10,7 @@
         <a href="index.html"><img src="Img/FUNNYCATSGIF.gif" alt=""></a>
     </header>
   <script>
-    // Replace 'YOUR_GIPHY_API_KEY' with your actual Giphy API key
+    // API and Code were made possible by GIPHY public resources and ChatGPTs help with troubleshooting my code
     const GIPHY_API_KEY = 'GP9yjpGiLMYxCoF4kjakp9p9T7B3inhJ';
     const NUMBER_OF_GIFS = 200;
 
@@ -39,7 +39,6 @@
     img.src = gif.images.fixed_height.url;
     img.alt = gif.title;
 
-    // Randomly position the GIF
     let x, y, overlaps;
     do {
       x = Math.floor(Math.random() * (window.innerWidth - 200));
