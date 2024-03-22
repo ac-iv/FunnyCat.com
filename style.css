@@ -184,7 +184,15 @@ ul{
     margin-bottom: 3%;
     padding-bottom: 1%;
 }
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
 
+.blink {
+    animation: blinker 1s linear infinite;
+}
 .breeds-page footer p {
     font-family: Arial, sans-serif;
     font-size: 12px;
